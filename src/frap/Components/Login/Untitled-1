@@ -1,0 +1,17 @@
+curl 'http://zulu.mazeworkssolutions.com/api/method/login' \
+  -H 'Referer: http://react-erp.mazeworkssolutions.com:3000/' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{"name":"admin","password":"admin"}' \
+  --compressed
+
+  curl -XOPTIONS \
+  -H "Access-Control-Request-Method: POST" \
+  -H "Origin: http://react-erp.mazeworkssolutions.com:3000" \
+  http://zulu.mazeworkssolutions.com/api/method/login
+
+
+curl -I -X OPTIONS \
+  -H "Origin: http://react-erp.mazeworkssolutions.com:3000" \
+  -H 'Access-Control-Request-Method: POST' \
+http://zulu.mazeworkssolutions.com/api/method/login 2>&1 | grep 'Access-Control-Allow-Origin'
